@@ -42,7 +42,7 @@ bool Parser::inStock() {
 
 	xmlpp::Element* root = new xmlpp::Element(r);
 
-    std::string xpath = "//*[@id=\"productDetailsAddToCartForm\"]/div/div[13]/div";
+	std::string xpath = "//*[@id=\"productDetailsAddToCartForm\"]/div/div[13]/div";
 	auto elements = root->find(xpath);
 
 	if (requestStatusCode() == 200) {
