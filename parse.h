@@ -15,7 +15,7 @@
 
 class Parser {
 	public:
-		static std::string url;
+		std::string url;
 		static std::string user_agent;
 		static std::string header_accept;
 

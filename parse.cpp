@@ -1,6 +1,5 @@
 #include "parse.h"
 
-std::string Parser::url = "";
 std::string Parser::user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36";
 std::string Parser::header_accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
 
@@ -46,7 +45,6 @@ bool Parser::inStock() {
 	auto elements = root->find(xpath);
 
 	if (requestStatusCode() == 200) {
-		std::cout << elements.size() << std::endl;
 		if (elements.size() != 0) {
 			return true;
 		}

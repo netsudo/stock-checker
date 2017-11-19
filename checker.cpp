@@ -2,9 +2,12 @@
 
 int main () {
 	Parser parse;
-	std::cout << parse.inStock() << std::endl;
+	parse.url = "http://shop.jimmydiresta.com/pushstick/";
 	if ( parse.inStock() == true ) {
 		std::cout << "available" << std::endl;
+	}
+	else {
+		std::cout << "Out of stock." << std::endl;
 	}
 
 	return 0;
