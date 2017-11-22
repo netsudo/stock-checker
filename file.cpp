@@ -29,7 +29,7 @@ void File::deleteLine(std::string filename, int lineNumber) {
 	
 	std::ofstream out("temp.cache", std::ios::out | std::ios::trunc);
 
-	for ( std::vector<std::string>::const_iterator i = file.begin(); i!= file.end(); ++i) {
+	for ( std::vector<std::string>::const_iterator i = file.begin(); i != file.end(); ++i) {
 		if ( *i != "" ) {
 			out << *i << std::endl;
 		}
@@ -39,4 +39,16 @@ void File::deleteLine(std::string filename, int lineNumber) {
 	std::remove(filename);
 	std::rename("temp.cache", filename);
 		
+}
+
+void File::writeLines(std::string filename) {
+	file = fileLines(filename);
+	int j = 1;
+
+	for ( std::vector<std::string>::const_iterator i = file.begin(); i != file.end(); ++i) {
+		std::cout << j << ". " << *i << std::endl;
+
+		j++
+	}
+
 }
