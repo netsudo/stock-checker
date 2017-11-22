@@ -2,19 +2,21 @@
 #define FILE_H
 
 #include <fstream>
+#include <vector>
+#include <string>
 
 class File {
 	private:
-		std::string filename;
-		int lineNumber;
+		std::vector<std::string> fileLines();
 
-		void addLine();
+		void addLine(std::string filename, std::string content);
 
-		void deleteLine();
+		void deleteLine(std::string filename, int lineNumber);
 
-		void writeLines();
+		void writeLines(std::string filename);
 
-		void editLine();
+		void editLine(std::string filename, std::string content,int lineNumber);
+
 };
 
 #endif
