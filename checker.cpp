@@ -1,4 +1,5 @@
 #include "parse.h"
+#include "file.h"
 
 int main () {
 	Parser parse;

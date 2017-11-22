@@ -4,10 +4,11 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 class File {
 	private:
-		std::vector<std::string> fileLines();
+		std::vector<std::string> fileLines(std::string filename);
 
 		void addLine(std::string filename, std::string content);
 
