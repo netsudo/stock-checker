@@ -52,3 +52,21 @@ void File::writeLines(std::string filename) {
 	}
 
 }
+
+void File::editLine(std::string filename, std::string content, int lineNumber) {
+	std::vector<std::string> file = fileLines(filename);
+	
+	std::ofstream out("temp.cache", std::ios::out | std::ios::trunc);
+
+	file.at(lineNumber) = content;
+	for ( std::vector<std::string>::const_iterator i = file.begin(); i != file.end(); ++i) {
+		if ( *i != "" ) {
+			out << *i << std::endl;
+		}
+	}
+	out.close();
+
+	std::remove(filename.c_str());
+	std::rename("temp.cache", filename.c_str());
+		
+}
