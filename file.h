@@ -7,7 +7,7 @@
 #include <iostream>
 
 class File {
-	private:
+	protected:
 		std::vector<std::string> fileLines(std::string filename);
 
 		void addLine(std::string filename, std::string content);
