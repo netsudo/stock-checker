@@ -1,6 +1,6 @@
 #include "file.h"
 
-std::vector<std::string> fileLines(std::string filename) {
+std::vector<std::string> File::fileLines(std::string filename) {
 	std::vector<std::string> file;
 	std::string temp;
 
