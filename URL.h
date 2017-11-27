@@ -3,9 +3,9 @@
 
 #include "file.h"
 
-class URL: protected File {
+class URL: private File {
 	private:
-		const std::string filename;
+		static const std::string filename;
 
 	public:
 		bool validateURL(std::string url);

@@ -4,7 +4,7 @@ std::vector<std::string> File::fileLines(std::string filename) {
 	std::vector<std::string> file;
 	std::string temp;
 
-	std::ifstream infile(filename);
+	std::ifstream infile(filename.c_str());
 	while ( !infile.eof() ) {
 		std::getline(infile, temp);
 		file.push_back(temp);
