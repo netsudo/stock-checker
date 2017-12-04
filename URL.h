@@ -3,7 +3,7 @@
 
 #include "file.h"
 
-class URL: private File {
+class URL: protected File {
 	private:
 		static const std::string filename;
 
