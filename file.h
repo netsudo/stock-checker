@@ -10,6 +10,7 @@ class File {
 	protected:
 		std::vector<std::string> fileLines(std::string filename);
 
+	public:
 		void addLine(std::string filename, std::string content);
 
 		void deleteLine(std::string filename, int lineNumber);
