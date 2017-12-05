@@ -9,4 +9,3 @@ bool URL::validateSelection(unsigned int line) {
 
 	return false;
 }
-
