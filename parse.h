@@ -16,13 +16,18 @@
 class Parser {
 	public:
 		std::string url;
-		static std::string user_agent;
-		static std::string header_accept;
+
+		bool validURL();
 
 		bool inStock();
 
 	private:
+		static const std::string user_agent;
+
+		static const std::string header_accept;
+
 		curlpp::Easy request;
+
 		std::list<std::string> headers;
 
 		void setHeaders();
@@ -32,6 +37,8 @@ class Parser {
 		std::string responseStream();
 
 		int requestStatusCode();
+
+		std::ostringstream performRequest();
 
 };
 

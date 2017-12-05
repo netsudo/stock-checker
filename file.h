@@ -8,16 +8,16 @@
 
 class File {
 	protected:
-		std::vector<std::string> fileLines(std::string filename);
+		std::vector<std::string> fileLines(const std::string filename);
 
 	public:
-		void addLine(std::string filename, std::string content);
+		void addLine(const std::string filename, std::string content);
 
-		void deleteLine(std::string filename, int lineNumber);
+		void deleteLine(const std::string filename, int lineNumber);
 
-		void writeLines(std::string filename);
+		void writeLines(const std::string filename);
 
-		void editLine(std::string filename, std::string content,int lineNumber);
+		void editLine(const std::string filename, std::string content, int lineNumber);
 
 };
 

@@ -1,7 +1,7 @@
 #include "parse.h"
 
-std::string Parser::user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36";
-std::string Parser::header_accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
+const std::string Parser::user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36";
+const std::string Parser::header_accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
 
 void Parser::setHeaders() {
 	request.setOpt(curlpp::options::Url(url));
@@ -14,20 +14,37 @@ void Parser::setRequest() {
 	request.setOpt(new curlpp::options::FollowLocation(true));
 }
 
-std::string Parser::responseStream() { 
+std::ostringstream Parser::performRequest() {
+	/* Used in a couple functions, need it because default behavior
+	 * is to output HTML to console and has to be overridden */
 	std::ostringstream responseStream;
 	curlpp::options::WriteStream streamWriter(&responseStream);
 	request.setOpt(streamWriter);
 	request.perform();
-	
-	std::string re = responseStream.str();
+
+	return responseStream;
+}
+
+std::string Parser::responseStream() { 
+	std::string re = performRequest().str();
 
 	return re;
 }
 
 int Parser::requestStatusCode() { 
 	return curlpp::infos::ResponseCode::get(request);
+}
 
+bool Parser::validURL() {
+	setRequest();
+	setHeaders();
+	performRequest();
+
+	if ( requestStatusCode() == 200 ) {
+		return true;
+	}
+
+	return false;
 }
 
 bool Parser::inStock() { 

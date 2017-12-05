@@ -13,16 +13,16 @@ std::vector<std::string> File::fileLines(std::string filename) {
 	return file;
 }
 
-void File::addLine(std::string filename, std::string content) {
+void File::addLine(const std::string filename, std::string content) {
 	std::ofstream outfile;
 
 	outfile.open(filename, std::ios_base::app);
-	outfile << content;
+	outfile << "\n" << content;
 
 	outfile.close();
 }
 
-void File::deleteLine(std::string filename, int lineNumber) {
+void File::deleteLine(const std::string filename, int lineNumber) {
 	std::vector<std::string> file = fileLines(filename);
 	file.erase( file.begin() + lineNumber );
 	
@@ -40,7 +40,7 @@ void File::deleteLine(std::string filename, int lineNumber) {
 		
 }
 
-void File::writeLines(std::string filename) {
+void File::writeLines(const std::string filename) {
 	std::vector<std::string> file = fileLines(filename);
 	int j = 1;
 
@@ -52,7 +52,7 @@ void File::writeLines(std::string filename) {
 
 }
 
-void File::editLine(std::string filename, std::string content, int lineNumber) {
+void File::editLine(const std::string filename, std::string content, int lineNumber) {
 	std::vector<std::string> file = fileLines(filename);
 	
 	std::ofstream out("temp.cache", std::ios::out | std::ios::trunc);

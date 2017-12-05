@@ -3,12 +3,9 @@
 
 #include "file.h"
 
-class URL: protected File {
-	private:
-		static const std::string filename;
-
+class URL: public File {
 	public:
-		bool validateURL(std::string url);
+		static const std::string filename;
 
 		bool validateSelection(int line);
 };
