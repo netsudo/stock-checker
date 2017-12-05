@@ -17,7 +17,7 @@ class File {
 
 		void writeLines(const std::string filename);
 
-		void editLine(const std::string filename, std::string content, int lineNumber);
+		void editLine(const std::string filename, int lineNumber, std::string content);
 
 };
 

@@ -7,6 +7,7 @@ int main ( int argc, char *argv[] ) {
 	Parser parse; URL url;
 
 	if ( strcmp(argv[1], "-a") == 0 ) {
+
 		std::string str(argv[2]);
 		parse.url = argv[2];
 
@@ -26,6 +27,24 @@ int main ( int argc, char *argv[] ) {
 		}
 		else {
 			std::cout << "Entry doesn't exist." << std::endl;
+		}
+	}
+
+	else if ( strcmp(argv[1], "-w") == 0 ) {
+		url.writeLines(url.filename);
+	}
+
+	else if ( strcmp(argv[1], "-e") == 0 ) {
+
+		std::string str(argv[3]);
+		parse.url = argv[3];
+
+		unsigned int lineSelection = strtoul( argv[2], NULL, 0);
+		if ( url.validateSelection( lineSelection ) && parse.validURL() ) {
+			url.editLine(url.filename, lineSelection, argv[3]);
+		}
+		else {
+			std::cout << "Entry doesn't exist or URL is invalid." << std::endl;
 		}
 	}
 

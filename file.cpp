@@ -52,7 +52,7 @@ void File::writeLines(const std::string filename) {
 
 }
 
-void File::editLine(const std::string filename, std::string content, int lineNumber) {
+void File::editLine(const std::string filename, int lineNumber, std::string content) {
 	std::vector<std::string> file = fileLines(filename);
 	
 	std::ofstream out("temp.cache", std::ios::out | std::ios::trunc);
