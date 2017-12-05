@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 #include "parse.h"
 #include "URL.h"
 
@@ -14,6 +15,17 @@ int main ( int argc, char *argv[] ) {
 		}
 		else {
 			std::cout << "Must enter a valid URL." << std::endl;
+		}
+	}
+
+	else if ( strcmp(argv[1], "-d") == 0 ) {
+
+		unsigned int lineSelection = strtoul( argv[2], NULL, 0);
+		if ( url.validateSelection( lineSelection ) ) {
+			url.deleteLine(url.filename, lineSelection);
+		}
+		else {
+			std::cout << "Entry doesn't exist." << std::endl;
 		}
 	}
 

@@ -2,9 +2,11 @@
 
 const std::string URL::filename = "urls.cache";
 
-bool URL::validateSelection(int line) {
+bool URL::validateSelection(unsigned int line) {
+	if ( line < fileLines(filename).size() ) {
+		return true;
+	}
 
-	return true;
-
+	return false;
 }
 
