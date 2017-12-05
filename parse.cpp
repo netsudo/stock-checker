@@ -38,7 +38,14 @@ int Parser::requestStatusCode() {
 bool Parser::validURL() {
 	setRequest();
 	setHeaders();
-	performRequest();
+
+	try {
+		performRequest();
+	}
+
+	catch (curlpp::LibcurlRuntimeError) {
+		return false;
+	}
 
 	if ( requestStatusCode() == 200 ) {
 		return true;

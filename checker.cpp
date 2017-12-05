@@ -1,15 +1,26 @@
+#include <string.h>
 #include "parse.h"
-#include "file.h"
+#include "URL.h"
 
-int main () {
-	Parser parse;
-	parse.url = "http://shop.jimmydiresta.com/pushstick/";
-	if ( parse.inStock() == true ) {
-		std::cout << "available" << std::endl;
+int main ( int argc, char *argv[] ) {
+	Parser parse; URL url;
+
+	if ( strcmp(argv[1], "-a") == 0 ) {
+		std::string str(argv[2]);
+		parse.url = argv[2];
+
+		if ( parse.validURL() ) {
+			url.addLine( url.filename, argv[2] );
+		}
+		else {
+			std::cout << "Must enter a valid URL." << std::endl;
+		}
 	}
+
 	else {
-		std::cout << "Out of stock." << std::endl;
+		std::cout << "invalid" << std::endl;
 	}
+
 
 	return 0;
 }
