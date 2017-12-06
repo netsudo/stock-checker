@@ -1,6 +1,6 @@
 #include "phone.h"
 
-const std::string Phone::filename = "numbers.cache";
+Phone::Phone(const std::string filename = "numbers.cache") : File(filename) {}
 
 bool Phone::validateSelection(unsigned int line) {
 	if ( line < fileLines(filename).size() ) {

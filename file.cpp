@@ -1,5 +1,7 @@
 #include "file.h"
 
+File::File(const std::string file) : filename(file) {}
+
 std::vector<std::string> File::fileLines(std::string filename) {
 	std::vector<std::string> file;
 	std::string temp;
@@ -13,7 +15,7 @@ std::vector<std::string> File::fileLines(std::string filename) {
 	return file;
 }
 
-void File::addLine(const std::string filename, std::string content) {
+void File::addLine(std::string content) {
 	std::ofstream outfile;
 
 	outfile.open(filename, std::ios_base::app);
@@ -22,7 +24,7 @@ void File::addLine(const std::string filename, std::string content) {
 	outfile.close();
 }
 
-void File::deleteLine(const std::string filename, int lineNumber) {
+void File::deleteLine(int lineNumber) {
 	std::vector<std::string> file = fileLines(filename);
 	file.erase( file.begin() + lineNumber );
 	
@@ -40,7 +42,7 @@ void File::deleteLine(const std::string filename, int lineNumber) {
 		
 }
 
-void File::writeLines(const std::string filename) {
+void File::writeLines() {
 	std::vector<std::string> file = fileLines(filename);
 	int j = 1;
 
@@ -52,7 +54,7 @@ void File::writeLines(const std::string filename) {
 
 }
 
-void File::editLine(const std::string filename, int lineNumber, std::string content) {
+void File::editLine(int lineNumber, std::string content) {
 	std::vector<std::string> file = fileLines(filename);
 	
 	std::ofstream out("temp.cache", std::ios::out | std::ios::trunc);

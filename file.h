@@ -7,17 +7,22 @@
 #include <iostream>
 
 class File {
+	private:
+		const std::string filename; 
+
 	protected:
 		std::vector<std::string> fileLines(const std::string filename);
 
 	public:
-		void addLine(const std::string filename, std::string content);
+		File(const std::string filename);
 
-		void deleteLine(const std::string filename, int lineNumber);
+		void addLine(std::string content);
 
-		void writeLines(const std::string filename);
+		void deleteLine(int lineNumber);
 
-		void editLine(const std::string filename, int lineNumber, std::string content);
+		void writeLines();
+
+		void editLine(int lineNumber, std::string content);
 
 };
 

@@ -5,7 +5,7 @@
 
 class URL: public File {
 	public:
-		static const std::string filename;
+		URL(const std::string filename);
 
 		bool validateSelection(unsigned int line);
 };
