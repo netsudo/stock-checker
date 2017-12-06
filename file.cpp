@@ -1,6 +1,6 @@
 #include "file.h"
 
-File::File(const std::string file) : filename(file) {}
+File::File(const std::string filename) : filename(filename) {}
 
 std::vector<std::string> File::fileLines(std::string filename) {
 	std::vector<std::string> file;

@@ -1,6 +1,6 @@
 #include "URL.h"
 
-URL::URL(const std::string filename = "urls.cache") : File(filename) {}
+URL::URL() : File("urls.cache") {}
 
 bool URL::validateSelection(unsigned int line) {
 	if ( line < fileLines(filename).size() ) {

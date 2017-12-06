@@ -12,7 +12,7 @@ int main ( int argc, char *argv[] ) {
 		parse.url = argv[2];
 
 		if ( parse.validURL() ) {
-			url.addLine( url.filename, argv[2] );
+			url.addLine( argv[2] );
 		}
 		else {
 			std::cout << "Must enter a valid URL." << std::endl;
@@ -23,7 +23,7 @@ int main ( int argc, char *argv[] ) {
 
 		unsigned int lineSelection = strtoul( argv[2], NULL, 0);
 		if ( url.validateSelection( lineSelection ) ) {
-			url.deleteLine(url.filename, lineSelection);
+			url.deleteLine( lineSelection );
 		}
 		else {
 			std::cout << "Entry doesn't exist." << std::endl;
@@ -31,7 +31,7 @@ int main ( int argc, char *argv[] ) {
 	}
 
 	else if ( strcmp(argv[1], "-w") == 0 ) {
-		url.writeLines(url.filename);
+		url.writeLines();
 	}
 
 	else if ( strcmp(argv[1], "-e") == 0 ) {
@@ -41,7 +41,7 @@ int main ( int argc, char *argv[] ) {
 
 		unsigned int lineSelection = strtoul( argv[2], NULL, 0);
 		if ( url.validateSelection( lineSelection ) && parse.validURL() ) {
-			url.editLine(url.filename, lineSelection, argv[3]);
+			url.editLine( lineSelection, argv[3] );
 		}
 		else {
 			std::cout << "Entry doesn't exist or URL is invalid." << std::endl;

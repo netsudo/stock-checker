@@ -7,10 +7,8 @@
 #include <iostream>
 
 class File {
-	private:
-		const std::string filename; 
-
 	protected:
+		const std::string filename; 
 		std::vector<std::string> fileLines(const std::string filename);
 
 	public:
