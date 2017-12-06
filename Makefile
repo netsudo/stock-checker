@@ -1,5 +1,5 @@
 CC=g++
-OBJS = checker.cpp file.cpp parse.cpp URL.cpp
+OBJS = checker.cpp file.cpp parse.cpp URL.cpp phone.cpp
 PATHS = -I/usr/include -L/usr/local/lib64
 LIBS = -lcurl -lcurlpp `xml2-config --cflags --libs` `pkg-config libxml++-3.0 --cflags --libs`
 CFLAGS= -Wall -c $(LIBS) --std=c++14

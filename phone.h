@@ -5,7 +5,7 @@
 
 class Phone: public File {
 	public:
-		Phone(const std::string filename);
+		Phone();
 
 		bool validateSelection(unsigned int line);
 };
