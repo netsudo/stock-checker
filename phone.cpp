@@ -4,8 +4,13 @@ Phone::Phone() : File("urls.cache") {}
 const std::string Phone::acceptedCharacters = "0123456789";
 
 bool Phone::validNumber(std::string number) {
-	for ( auto i = 0; i < number.length(); i++ ) {
-		if ( !(acceptedCharacters.find(number[i]) != std::string::npos) ) {
+	//Checking for 11 digit long number, North America specific
+	if ( number.length() != 11 ) {
+		return false;
+	}
+
+	for ( char & c : number ) {
+		if ( !(acceptedCharacters.find(c) != std::string::npos) ) {
 			return false;
 		}
 	}
