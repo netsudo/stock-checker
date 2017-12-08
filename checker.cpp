@@ -4,6 +4,20 @@
 #include "URL.h"
 #include "phone.h"
 
+void help() {
+	std::cout << "Product Availability Checker v0.0\n\n"
+			  << "Commands:\n"
+			  << "-wu -- Displays the tracked URL's\n"
+			  << "-wn -- Displays the phone numbers to notify\n"
+			  << "-au [URL] -- Add a URL to watch\n"
+			  << "-an [NUMBER] -- Add a number to notify\n"
+			  << "-du [ENTRY #] -- Stop watching a URL\n"
+			  << "-dn [ENTRY #] -- Stop notifying a number\n"
+			  << "-eu [ENTRY #] -- Modify a watched URL\n"
+			  << "-en [ENTRY #] -- Modify a phone number\n"
+			  << std::endl;
+}
+
 int main ( int argc, char *argv[] ) {
 	Parser parse; URL url; Phone phone;
 
@@ -17,6 +31,10 @@ int main ( int argc, char *argv[] ) {
 		}
 		else if ( strcmp(argv[1], "-wn" ) == 0 ) {
 			phone.writeLines();
+		}
+		else if ( strcmp(argv[1], "--help") == 0 ||
+				  strcmp(argv[1], "-h") == 0 ) {
+			help();
 		}
 		else { std::cout << "Invalid argument." << std::endl; }
 	}
