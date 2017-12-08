@@ -19,7 +19,7 @@ void File::addLine(std::string content) {
 	std::ofstream outfile;
 
 	outfile.open(filename, std::ios_base::app);
-	outfile << "\n" << content;
+	outfile << content << "\n";
 
 	outfile.close();
 }
