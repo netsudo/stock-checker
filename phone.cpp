@@ -1,6 +1,6 @@
 #include "phone.h"
 
-Phone::Phone() : File("urls.cache") {}
+Phone::Phone() : File("numbers.cache") {}
 const std::string Phone::acceptedCharacters = "0123456789";
 
 bool Phone::validNumber(std::string number) {
